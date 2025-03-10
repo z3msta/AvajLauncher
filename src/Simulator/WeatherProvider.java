@@ -1,3 +1,5 @@
+package Simulator;
+
 public class WeatherProvider extends Tower {
 
     private static WeatherProvider provider = null;

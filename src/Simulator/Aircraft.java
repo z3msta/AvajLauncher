@@ -1,4 +1,6 @@
-//this class needs to define methods from abstract Flyable class
+package Simulator;
+
+//this class needs to define methods from abstract Simulator.Flyable class
 public class Aircraft extends Flyable{
 
     protected long id;

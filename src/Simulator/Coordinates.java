@@ -1,3 +1,5 @@
+package Simulator;
+
 public class Coordinates{
 
     //this class cannot exist on its own

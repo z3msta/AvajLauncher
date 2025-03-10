@@ -1,18 +1,21 @@
+package Simulator;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Main {
+public class Simulator {
     public static void main(String[] args) {
 
         List<String> data = new ArrayList<String>();
 
         if (args.length != 1) {
-            System.out.println("Usage: java Main scenarioFile.txt");
+            System.out.println("Usage: java Simulator.Main scenarioFile.txt");
             return;
         }
+
         try {
             File scnearioFile = new File(args[0]);
             if (!scnearioFile.exists()) {
@@ -28,10 +31,9 @@ public class Main {
             System.out.println("File not found: " + args[0]);
         }
 
-        int i = 0;
-        while (i < data.size()) {
-            System.out.println(data.get(i));
-            i++;
+        Parsing parser = new Parsing();
+        if (parser.fileParsing(data) == -1) {
+            System.out.println("Parsing failed");
         }
     }
 }

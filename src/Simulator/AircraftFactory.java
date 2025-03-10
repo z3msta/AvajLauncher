@@ -1,3 +1,5 @@
+package Simulator;
+
 public class AircraftFactory {
 
     private static AircraftFactory aircraftFactory = null;
@@ -8,7 +10,7 @@ public class AircraftFactory {
         }
         return aircraftFactory;
     }
-//    public Flyable newAircraft(String p_type, String p_name, Coordinates p_coordinates){
+//    public Simulator.Flyable newAircraft(String p_type, String p_name, Simulator.Coordinates p_coordinates){
 //
 //    }
 }

@@ -1,3 +1,5 @@
+package Simulator;
+
 public abstract class Flyable {
 
     protected WeatherTower weatherTower;
