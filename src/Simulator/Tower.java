@@ -7,9 +7,12 @@ public class Tower {
 
 	private List<Flyable> observers = new ArrayList<>();
 
+	public void announceRegistration(String name) {
+		System.out.println("Tower: " + name + " registered to weather tower.");
+	}
+
 	public void register(Flyable p_flyable) {
 		this.observers.add(p_flyable);
-		System.out.println("TOWER: " + p_flyable.get);
 	}
 
 	public void unregister(Flyable p_flyable) {

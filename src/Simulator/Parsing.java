@@ -40,8 +40,9 @@ public class Parsing {
 			Flyable aircraft = aircraftFactory.newAircraft(currentAircraft[0], currentAircraft[1], coordinates);
 			if (aircraft == null)
 				return -1;
+			//not sure I have to do it here
 			tower.register(aircraft);
-
+			tower.announceRegistration(currentAircraft[0] + "#" + currentAircraft[1]);
 			i++;
 		}
 		return 1;
