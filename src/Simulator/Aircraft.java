@@ -11,8 +11,15 @@ public class Aircraft extends Flyable {
 
 	}
 
-	protected void Aircraft(long p_id, String p_name, Coordinates p_coordinates) {
+	public long getId() {
+		return this.id;
+	}
 
+	public String getName() {
+		return name;
+	}
+	
+	protected Aircraft(long p_id, String p_name, Coordinates p_coordinates) {
 		this.id = p_id;
 		this.name = p_name;
 		this.coordinates = p_coordinates;

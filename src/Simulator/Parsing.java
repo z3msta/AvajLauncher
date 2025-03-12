@@ -9,8 +9,6 @@ public class Parsing {
 
 	public int fileParsing(List<String> data) {
 
-		int i = 1;
-
 		try {
 			int number = Integer.parseInt(data.get(0));
 			if (number < 0)
@@ -23,9 +21,12 @@ public class Parsing {
 		Tower tower = new Tower();
 
 		for (int j = 1; j < data.size(); j++) {
-			if (data.get(i).split(" ").length != 5)
+			if (data.get(j).split(" ").length != 5) {
 				return -1;
+			}
 		}
+
+		int i = 1;
 		while (data.size() > i) {
 
 			String[] currentAircraft = data.get(i).split(" ");
@@ -36,7 +37,10 @@ public class Parsing {
 			coordinates.setLatitude(Integer.parseInt(currentAircraft[3]));
 			coordinates.setHeight(Integer.parseInt(currentAircraft[4]));
 
-			tower.register(aircraftFactory.newAircraft(currentAircraft[0], currentAircraft[1], coordinates));
+			Flyable aircraft = aircraftFactory.newAircraft(currentAircraft[0], currentAircraft[1], coordinates);
+			if (aircraft == null)
+				return -1;
+			tower.register(aircraft);
 
 			i++;
 		}
