@@ -3,25 +3,17 @@ package Simulator;
 //this class needs to define methods from abstract Simulator.Flyable class
 public class Aircraft extends Flyable {
 
-	protected long id;
-	protected String name;
-	protected Coordinates coordinates;
+    protected long id;
+    protected String name;
+    protected Coordinates coordinates;
 
-	public void updateConditions() {
+    public void updateConditions() {
+		
+    }
 
-	}
-
-	public long getId() {
-		return this.id;
-	}
-
-	public String getName() {
-		return name;
-	}
-	
-	protected Aircraft(long p_id, String p_name, Coordinates p_coordinates) {
-		this.id = p_id;
-		this.name = p_name;
-		this.coordinates = p_coordinates;
-	}
+    protected Aircraft(long p_id, String p_name, Coordinates p_coordinates) {
+        this.id = p_id;
+        this.name = p_name;
+        this.coordinates = p_coordinates;
+    }
 }

@@ -12,7 +12,7 @@ public class Simulator {
         List<String> data = new ArrayList<String>();
 
         if (args.length != 1) {
-            System.out.println("Usage: java Simulator.Main scenarioFile.txt");
+            System.out.println("Usage: java src Simulator.Simulator scenarioFile.txt");
             return;
         }
 

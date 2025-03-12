@@ -1,5 +1,7 @@
 package Simulator;
 
+import java.util.Random;
+
 public class WeatherProvider extends Tower {
 
     private static WeatherProvider provider = null;
@@ -11,12 +13,14 @@ public class WeatherProvider extends Tower {
         return provider;
     }
 
-    private String[] weather;
+    private String[] weather = {"FOG", "RAIN", "SUN", "SNOW"};
 
     private WeatherProvider() {
 
     }
-    //public String getCurrentWeather(Coordiates p_coordibates){
 
-    //}
+    public String getCurrentWeather(Coordinates p_coordibates) {
+
+
+    }
 }
