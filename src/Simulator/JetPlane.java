@@ -3,7 +3,8 @@ package Simulator;
 public class JetPlane extends Aircraft {
 
     public JetPlane(long p_id, String p_name, Coordinates p_coordinates) {
-        super(p_id, p_name, p_coordinates);
+
+        super("JetPlane", p_id, p_name, p_coordinates);
     }
 
     public void updateConditions() {
@@ -30,6 +31,10 @@ public class JetPlane extends Aircraft {
             case "SNOW":
                 System.out.println("Helicopter" + "#" + this.name + "(" + this.id + ")" + ": LET IT SNOW!");
                 this.coordinates.setHeight(this.coordinates.getHeight() - 7);
+        }
+        if (this.coordinates.getHeight() <= 0) {
+            this.printHeightInfo();
+            weatherTower.unregister(this);
         }
     }
 }

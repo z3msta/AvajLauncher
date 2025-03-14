@@ -4,7 +4,7 @@ public class Baloon extends Aircraft {
 
     public Baloon(long p_id, String p_name, Coordinates p_coordinates) {
 
-        super(p_id, p_name, p_coordinates);
+        super("Baloon", p_id, p_name, p_coordinates);
     }
 
     public void updateConditions() {
@@ -27,6 +27,10 @@ public class Baloon extends Aircraft {
             case "SNOW":
                 System.out.println("Baloon" + "#" + this.name + "(" + this.id + ")" + ": I hate the snow");
                 this.coordinates.setHeight(this.coordinates.getHeight() - 15);
+        }
+        if (this.coordinates.getHeight() <= 0) {
+            this.printHeightInfo();
+            weatherTower.unregister(this);
         }
     }
 }

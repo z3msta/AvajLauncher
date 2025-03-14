@@ -3,7 +3,7 @@ package Simulator;
 public class Helicopter extends Aircraft {
 
     public Helicopter(long p_id, String p_name, Coordinates p_coordinates) {
-        super(p_id, p_name, p_coordinates);
+        super("Helicopter", p_id, p_name, p_coordinates);
     }
 
     public void updateConditions() {
@@ -29,6 +29,9 @@ public class Helicopter extends Aircraft {
                 System.out.println("Helicopter" + "#" + this.name + "(" + this.id + ")" + ": What is this? never seen it.");
                 this.coordinates.setHeight(this.coordinates.getHeight() - 12);
         }
-
+        if (this.coordinates.getHeight() <= 0) {
+            this.printHeightInfo();
+            weatherTower.unregister(this);
+        }
     }
 }

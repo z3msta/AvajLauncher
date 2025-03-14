@@ -45,7 +45,6 @@ public class Parsing {
                 return -1;
 
             weatherTower.register(aircraft);
-            weatherTower.announceRegistration(currentAircraft[0] + "#" + currentAircraft[1]);
             i++;
         }
 

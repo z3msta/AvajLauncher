@@ -11,21 +11,19 @@ public class Tower {
         return this.observers;
     }
 
-    public void announceRegistration(String name) {
-
-        System.out.println("Tower: " + name + " registered to weather tower.");
-    }
-
     public void register(Flyable p_flyable) {
 
         this.observers.add(p_flyable);
+        p_flyable.announceRegistration();
     }
 
     public void unregister(Flyable p_flyable) {
 
         for (int i = 0; i < observers.size(); i++)
-            if (observers.get(i) == p_flyable)
+            if (observers.get(i) == p_flyable) {
+                p_flyable.announceLanding();
                 observers.remove(i);
+            }
     }
 
     protected void conditionChanged() {

@@ -7,6 +7,11 @@ public abstract class Flyable {
     public abstract void updateConditions();
 
 
+    public abstract void announceRegistration();
+
+    public abstract void announceLanding();
+
+
     public void registerTower(WeatherTower weatherTower) {
         this.weatherTower = weatherTower;
     }
