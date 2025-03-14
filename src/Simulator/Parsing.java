@@ -39,6 +39,7 @@ public class Parsing {
             coordinates.setHeight(Integer.parseInt(currentAircraft[4]));
 
             Flyable aircraft = aircraftFactory.newAircraft(currentAircraft[0], currentAircraft[1], coordinates);
+            aircraft.registerTower(weatherTower);
 
             if (aircraft == null)
                 return -1;

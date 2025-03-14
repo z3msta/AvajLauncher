@@ -28,7 +28,6 @@ public class Tower {
                 observers.remove(i);
     }
 
-    //need to understand what this is for
     protected void conditionChanged() {
         for (int i = 0; i < observers.size(); i++) {
             observers.get(i).updateConditions();
