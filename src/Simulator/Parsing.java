@@ -34,9 +34,14 @@ public class Parsing {
 
             Coordinates coordinates = new Coordinates();
 
-            coordinates.setLongitude(Integer.parseInt(currentAircraft[2]));
-            coordinates.setLatitude(Integer.parseInt(currentAircraft[3]));
-            coordinates.setHeight(Integer.parseInt(currentAircraft[4]));
+            try {
+                coordinates.setLongitude(Integer.parseInt(currentAircraft[2]));
+                coordinates.setLatitude(Integer.parseInt(currentAircraft[3]));
+                coordinates.setHeight(Integer.parseInt(currentAircraft[4]));
+            } catch (NumberFormatException e) {
+                return -1;
+            }
+
 
             Flyable aircraft = aircraftFactory.newAircraft(currentAircraft[0], currentAircraft[1], coordinates);
             aircraft.registerTower(weatherTower);
