@@ -6,9 +6,13 @@ public class Aircraft extends Flyable {
     protected long id;
     protected String name;
     protected Coordinates coordinates;
+    protected String currentWeather;
 
     public void updateConditions() {
-		
+    }
+
+    public void setCoordinates(Coordinates coordinates) {
+        this.coordinates = coordinates;
     }
 
     protected Aircraft(long p_id, String p_name, Coordinates p_coordinates) {
@@ -16,4 +20,5 @@ public class Aircraft extends Flyable {
         this.name = p_name;
         this.coordinates = p_coordinates;
     }
+
 }

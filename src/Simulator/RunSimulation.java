@@ -9,12 +9,13 @@ import java.util.Scanner;
 public class RunSimulation {
 
     WeatherProvider weatherProvider = WeatherProvider.getWeatherProvider();
-    
-    public void beginSimulation(int nSimulations, List<Flyable> airCrafts) {
 
-        while (nSimulations < 0) {
+    public void beginSimulation(int nSimulations, WeatherTower weatherTower) {
 
 
+        while (nSimulations > 0) {
+
+            weatherTower.changeWeather();
             nSimulations--;
         }
     }

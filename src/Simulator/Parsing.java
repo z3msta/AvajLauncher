@@ -19,7 +19,7 @@ public class Parsing {
         }
 
         AircraftFactory aircraftFactory = AircraftFactory.getAircraftFactory();
-        Tower tower = new Tower();
+        WeatherTower weatherTower = new WeatherTower();
 
         for (int j = 1; j < data.size(); j++) {
             if (data.get(j).split(" ").length != 5) {
@@ -39,16 +39,17 @@ public class Parsing {
             coordinates.setHeight(Integer.parseInt(currentAircraft[4]));
 
             Flyable aircraft = aircraftFactory.newAircraft(currentAircraft[0], currentAircraft[1], coordinates);
+
             if (aircraft == null)
                 return -1;
 
-            tower.register(aircraft);
-            tower.announceRegistration(currentAircraft[0] + "#" + currentAircraft[1]);
+            weatherTower.register(aircraft);
+            weatherTower.announceRegistration(currentAircraft[0] + "#" + currentAircraft[1]);
             i++;
         }
 
         RunSimulation simulator = new RunSimulation();
-        simulator.beginSimulation(nSimulations, tower.getAircrafts());
+        simulator.beginSimulation(nSimulations, weatherTower);
         return 1;
     }
 }

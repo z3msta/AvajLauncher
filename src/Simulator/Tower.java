@@ -12,18 +12,26 @@ public class Tower {
     }
 
     public void announceRegistration(String name) {
+
         System.out.println("Tower: " + name + " registered to weather tower.");
     }
 
     public void register(Flyable p_flyable) {
+
         this.observers.add(p_flyable);
     }
 
     public void unregister(Flyable p_flyable) {
 
+        for (int i = 0; i < observers.size(); i++)
+            if (observers.get(i) == p_flyable)
+                observers.remove(i);
     }
 
+    //need to understand what this is for
     protected void conditionChanged() {
-
+        for (int i = 0; i < observers.size(); i++) {
+            observers.get(i).updateConditions();
+        }
     }
 }

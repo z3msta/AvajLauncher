@@ -6,7 +6,7 @@ public class WeatherProvider extends Tower {
 
     private static WeatherProvider provider = null;
 
-    public static synchronized WeatherProvider getWeatherProvider() {
+    public static WeatherProvider getWeatherProvider() {
         if (provider == null) {
             provider = new WeatherProvider();
         }
@@ -15,12 +15,12 @@ public class WeatherProvider extends Tower {
 
     private String[] weather = {"FOG", "RAIN", "SUN", "SNOW"};
 
-    private WeatherProvider() {
+//    private WeatherProvider() {
+//
+//    }
 
-    }
-
-    public String getCurrentWeather(Coordinates p_coordibates) {
-
-
+    public String getCurrentWeather(Coordinates p_coordinates) {
+        int coordinates = p_coordinates.getHeight() + p_coordinates.getLatitude() + p_coordinates.getLongitude();
+        return weather[coordinates % 4];
     }
 }

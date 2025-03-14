@@ -1,4 +1,5 @@
 src/Simulator/JetPlane.java
+src/Simulator/RunSimulation.java
 src/Simulator/Parsing.java
 src/Simulator/WeatherProvider.java
 src/Simulator/Helicopter.java

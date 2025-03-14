@@ -1,12 +1,14 @@
 package Simulator;
 
-public class WeatherTower {
+public class WeatherTower extends Tower {
 
-    // public String getWeather(Simulator.Coordinates p_coordinates) {
-
-    //}
+    private WeatherProvider weatherTower = WeatherProvider.getWeatherProvider();
+    
+    public String getWeather(Coordinates p_coordinates) {
+        return weatherTower.getCurrentWeather(p_coordinates);
+    }
 
     public void changeWeather() {
-
+        this.conditionChanged();
     }
 }

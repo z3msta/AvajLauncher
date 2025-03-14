@@ -2,35 +2,43 @@ package Simulator;
 
 public class Coordinates {
 
-	//this class cannot exist on its own
-	//can't have coordinates without an aircraft
-	private int longitude;
-	private int latitude;
-	private int height;
+    //this class cannot exist on its own
+    //can't have coordinates without an aircraft
+    private int longitude;
+    private int latitude;
+    private int height;
 
-	public void setLongitude(int longitude) {
-		this.longitude = longitude;
-	}
+    public void setLongitude(int longitude) {
+        this.longitude = longitude;
+    }
 
-	public void setLatitude(int latitude) {
-		this.latitude = latitude;
-	}
+    public void setLatitude(int latitude) {
 
-	public void setHeight(int height) {
-		this.height = height;
-	}
+        this.latitude = latitude;
+    }
 
-	public int getLongitude() {
-		return longitude;
-	}
+    public void setHeight(int height) {
 
-	public int getLatitude() {
-		return latitude;
-	}
+        if (height > 100)
+            this.height = 100;
+        else
+            this.height = height;
+    }
 
-	public int getHeight() {
-		return height;
-	}
+    public int getLongitude() {
 
-	//this instance of a class
+        return longitude;
+    }
+
+    public int getLatitude() {
+
+        return latitude;
+    }
+
+    public int getHeight() {
+
+        return height;
+    }
+
+    //this instance of a class
 }
