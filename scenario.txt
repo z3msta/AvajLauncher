@@ -1,3 +1,2 @@
-5
-
-Helicopter j1 98 68 99
+10
+Helicopter h1 98 68 10

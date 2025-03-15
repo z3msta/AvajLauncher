@@ -13,7 +13,7 @@ public class Aircraft extends Flyable {
     }
 
     public void printHeightInfo() {
-        System.out.println("Current: " + this.type + "#" + this.name + "(" + this.id + "): " + this.coordinates.getHeight());
+        System.out.println(this.type + "#" + this.name + "(" + this.id + "): Had to land on the ground. Height -> " + this.coordinates.getHeight());
 
     }
 

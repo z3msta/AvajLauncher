@@ -40,12 +40,14 @@ public class Parsing {
                 throw new ParsingErrorException("PARSING ERROR AT LINE " + (i + 1) + ": Couldn't convert string to int");
             }
 
-
-            Flyable aircraft = aircraftFactory.newAircraft(currentAircraft[0], currentAircraft[1], coordinates);
+            Flyable aircraft = null;
+            try {
+                aircraft = aircraftFactory.newAircraft(currentAircraft[0], currentAircraft[1], coordinates);
+            } catch (InvalidAirCraftName e) {
+                System.out.println("PARSING ERROR AT LINE " + (i + 1) + ": No match for AirCraft name --> " + currentAircraft[0]);
+                exit(1);
+            }
             aircraft.registerTower(weatherTower);
-
-            if (aircraft == null)
-                throw new ParsingErrorException("PARSING ERROR AT LINE " + (i + 1) + ": No match for AirCraft name --> " + currentAircraft[0]);
             weatherTower.register(aircraft);
             i++;
         }

@@ -15,7 +15,7 @@ public class AircraftFactory {
 
     private int ids = 0;
 
-    public Flyable newAircraft(String p_type, String p_name, Coordinates p_coordinates) {
+    public Flyable newAircraft(String p_type, String p_name, Coordinates p_coordinates) throws InvalidAirCraftName {
 
         if (p_coordinates.getHeight() > 100)
             p_coordinates.setHeight(100);
@@ -26,15 +26,11 @@ public class AircraftFactory {
             exit(1);
         }
 
-        switch (p_type) {
-            case "Helicopter":
-                return new Helicopter(ids++, p_name, p_coordinates);
-            case "Baloon":
-                return new Baloon(ids++, p_name, p_coordinates);
-            case "JetPlane":
-                return new JetPlane(ids++, p_name, p_coordinates);
-            default:
-                return null;
-        }
+        return switch (p_type) {
+            case "Helicopter" -> new Helicopter(ids++, p_name, p_coordinates);
+            case "Baloon" -> new Baloon(ids++, p_name, p_coordinates);
+            case "JetPlane" -> new JetPlane(ids++, p_name, p_coordinates);
+            default -> throw new InvalidAirCraftName("");
+        };
     }
 }
