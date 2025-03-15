@@ -7,23 +7,21 @@ import static java.lang.System.exit;
 
 public class Parsing {
 
-    public int fileParsing(List<String> data) {
+    public void fileParsing(List<String> data) throws ParsingErrorException {
 
         int nSimulations;
-        try {
-            nSimulations = Integer.parseInt(data.get(0));
-            if (nSimulations < 0)
-                return -1;
-        } catch (NumberFormatException e) {
-            return -1;
-        }
+
+        nSimulations = Integer.parseInt(data.get(0));
+        if (nSimulations < 0)
+            throw new ParsingErrorException("PARSING ERROR: Number of simulation runs not valid");
+
 
         AircraftFactory aircraftFactory = AircraftFactory.getAircraftFactory();
         WeatherTower weatherTower = new WeatherTower();
 
         for (int j = 1; j < data.size(); j++) {
             if (data.get(j).split(" ").length != 5) {
-                return -1;
+                throw new ParsingErrorException("PARSING ERROR AT LINE " + (j + 1) + ": Number of attributes for AirCraft not valid");
             }
         }
 
@@ -39,7 +37,7 @@ public class Parsing {
                 coordinates.setLatitude(Integer.parseInt(currentAircraft[3]));
                 coordinates.setHeight(Integer.parseInt(currentAircraft[4]));
             } catch (NumberFormatException e) {
-                return -1;
+                throw new ParsingErrorException("PARSING ERROR AT LINE " + (i + 1) + ": Couldn't convert string to int");
             }
 
 
@@ -47,14 +45,12 @@ public class Parsing {
             aircraft.registerTower(weatherTower);
 
             if (aircraft == null)
-                return -1;
-
+                throw new ParsingErrorException("PARSING ERROR AT LINE " + (i + 1) + ": No match for AirCraft name --> " + currentAircraft[0]);
             weatherTower.register(aircraft);
             i++;
         }
 
         RunSimulation simulator = new RunSimulation();
         simulator.beginSimulation(nSimulations, weatherTower);
-        return 1;
     }
 }

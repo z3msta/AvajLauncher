@@ -10,4 +10,5 @@ src/Simulator/Coordinates.java
 src/Simulator/Flyable.java
 src/Simulator/Baloon.java
 src/Simulator/Simulator.java
+src/Simulator/ParsingErrorException.java
 src/Simulator/WeatherTower.java
