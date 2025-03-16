@@ -15,9 +15,9 @@ public class WeatherProvider extends Tower {
 
     private String[] weather = {"FOG", "RAIN", "SUN", "SNOW"};
 
-//    private WeatherProvider() {
-//
-//    }
+    private WeatherProvider() {
+
+    }
 
     public String getCurrentWeather(Coordinates p_coordinates) {
         int coordinates = p_coordinates.getHeight() + p_coordinates.getLatitude() + p_coordinates.getLongitude();
