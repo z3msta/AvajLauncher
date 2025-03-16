@@ -11,7 +11,12 @@ public class Parsing {
 
         int nSimulations;
 
-        nSimulations = Integer.parseInt(data.get(0));
+        try {
+            nSimulations = Integer.parseInt(data.getFirst());
+        } catch (NumberFormatException e) {
+            throw new ParsingErrorException("PARSING ERROR: Number of simulation runs not valid");
+        }
+
         if (nSimulations < 0)
             throw new ParsingErrorException("PARSING ERROR: Number of simulation runs not valid");
 
