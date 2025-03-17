@@ -10,13 +10,13 @@ import static java.lang.System.exit;
 
 public class RunSimulation {
 
-    WeatherProvider weatherProvider = WeatherProvider.getWeatherProvider();
+//	WeatherProvider weatherProvider = WeatherProvider.getWeatherProvider();
 
-    public void beginSimulation(int nSimulations, WeatherTower weatherTower) {
+	public void beginSimulation(int nSimulations, WeatherTower weatherTower) {
 
-        while (nSimulations > 0) {
-            weatherTower.changeWeather();
-            nSimulations--;
-        }
-    }
+		while (nSimulations > 0) {
+			weatherTower.changeWeather();
+			nSimulations--;
+		}
+	}
 }
